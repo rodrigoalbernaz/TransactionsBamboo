@@ -150,9 +150,10 @@ error_code_map = {
 
 # Configuración de conexión a Elasticsearch
 
+
 es = Elasticsearch(
-    "https://elastic-observability-bamboo.es.us-east-1.aws.found.io:9243",
-    basic_auth=("ralbernaz", "b5$6g&C7p4R-9cC"),
+    st.secrets["ELASTIC_URL"],
+    basic_auth=(st.secrets["ELASTIC_USER"], st.secrets["ELASTIC_PASS"]),
     headers={
         "Accept": "application/vnd.elasticsearch+json; compatible-with=8",
         "Content-Type": "application/vnd.elasticsearch+json; compatible-with=8"
